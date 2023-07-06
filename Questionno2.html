@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <div id="id">ID:</div>
+    <div id="name">Name:</div>
+    <div id="price">Price:</div>
+    <div id="image">Image</div>
+    <div id="colors">Colors:</div>
+    <div id="company">Company:</div>
+    <div id="description">Description:</div>
+    <div id="category">Category:</div>
+    <div id="shipping">Shipping:</div>
+    </body>
+    <script>
+        const Demo_URL="https://course-api.com/react-store-products";
+const id=document.getElementById("id")
+const name=document.getElementById("name")
+const price=document.getElementById("price")
+const image=document.getElementById("image")
+const colors=document.getElementById("colors")
+const company=document.getElementById("company")
+const description=document.getElementById("description")
+const category=document.getElementById("category")
+const shipping=document.getElementById("shipping")
+
+
+//process data
+
+function processData(data){
+//
+     const idvalue=data[0].id;
+     console.log(data[0].id)
+     id.innerHTML+=idvalue
+
+     const namevalue=data[0].name;
+     console.log(data[0].name)
+     name.innerHTML+=namevalue
+
+     const pricevalue=data[0].price;
+     console.log(data[0].price)
+     price.innerHTML+=pricevalue
+
+     const imagevalue=data[0].image;
+     console.log(data[0].image)
+     image.innerHTML+=imagevalue
+
+     const colorsvalue=data[0].colors;
+     console.log(data[0].colors)
+     colors.innerHTML+=colorsvalue
+
+     const companyvalue=data[0].company;
+     console.log(data[0].company)
+     company.innerHTML+=companyvalue
+
+     const descriptionvalue=data[0].description;
+     console.log(data[0].description)
+     description.innerHTML+=descriptionvalue
+
+     const categoryvalue=data[0].category;
+     console.log(data[0].category)
+     category.innerHTML+=categoryvalue
+
+     const shippingvalue=data[0].shipping;
+     console.log(data[0].shipping)
+     shipping.innerHTML+=shippingvalue
+};
+       const fetchData= async function() 
+        {
+            try {
+    const response= await fetch(Demo_URL)
+    const data = await response.json()
+    processData(data)
+    } catch (error){
+        console.log("error", error)
+    }
+  }; 
+fetchData();
+   </script>
+</body>
+</html>
